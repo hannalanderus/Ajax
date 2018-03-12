@@ -1,0 +1,45 @@
+body{
+     background-color: black;  
+     font-family: 'Amatic SC', cursive;
+    
+}
+
+#logo > img{
+    margin-top: -20px;
+    max-height: 200px;
+    width: 100%;
+    border-bottom: solid white;
+    
+}
+
+
+#search , #searchButton , #sortOnPrice{
+    border: none;
+    font-size: 0.9em;
+    font-family: 'Alegreya Sans SC', sans-serif;
+    
+}
+
+h1{
+    font-family: 'Alegreya Sans SC', sans-serif;
+    color: white;
+}
+
+#marvelInformation{
+padding:100px;
+}
+
+#marvelInformation > p{
+    border: solid black;
+    width: 100%;
+    color: white;
+}
+
+img{
+    text-align: center;
+    width: 90%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+
