@@ -7,8 +7,10 @@ body{
 #logo > img{
     margin-top: -20px;
     max-height: 200px;
-    width: 100%;
+    width: 80%;
     border-bottom: solid white;
+    display: flex;
+    justify-content: center;
     
 }
 
