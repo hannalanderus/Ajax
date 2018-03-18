@@ -16,6 +16,7 @@ After that i made it possible to search on the different characters that i decid
 Last step - styling.
 
 ## Improvements :heavy_exclamation_mark:
+* Improve the character-button functions, when removing the images from the landing side.
 * Reduce code redundancy
 * Show the loader in every stage.
 * Better comments.
