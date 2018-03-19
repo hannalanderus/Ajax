@@ -1,5 +1,5 @@
 # Async & API
-Hanna Landerus | [GitHub Pages]( https://hannalanderus.github.io/Ajax/) | [GitHub Repository]()
+Hanna Landerus | [GitHub Pages]( https://hannalanderus.github.io/Ajax/) | [GitHub Repository](https://github.com/hannalanderus/Ajax.git)
 ## About
 A page where you can read about Marvel comics, containing specific characters.
 
