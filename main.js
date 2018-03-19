@@ -10,69 +10,16 @@ var noImage = "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available";
 
 fetchimages();
 
-/******************** fetch information regarding Black Panther **********************************/
-
-function fetchBlackPanther(blackPanther) {
-    fetch(`https://gateway.marvel.com:443/v1/public/characters/1009187/comics?orderBy=issueNumber&apikey=639194d75fce87a0e941f417bbff6300
-`).then(function (response) {
+/******************** fetch comics with specific characters *********************************************/
+function fetchMarvelHero(hero) {
+    fetch(`https://gateway.marvel.com:443/v1/public/characters/${hero}/comics?apikey=639194d75fce87a0e941f417bbff6300`)
+        .then(function (response) {
             return response.json();
         })
         .then(function (getMarvel) {
             marvelInformation(getMarvel);
         })
 
-        .catch(function (error) {
-            console.log(error);
-        })
-}
-
-/******************** fetch information regarding Spider man **************************************/
-
-function fetchSpiderMan(spiderMan) {
-
-    fetch(`https://gateway.marvel.com:443/v1/public/characters/1009610/comics?apikey=639194d75fce87a0e941f417bbff6300
-`).then(function (response) {
-            return response.json();
-        })
-        .then(function (getMarvel) {
-            marvelInformation(getMarvel);
-        })
-
-        .catch(function (error) {
-            console.log(error);
-        })
-
-}
-
-/******************** fetch information regarding the Hulk ***************************************/
-
-function fetchHulk(hulk) {
-
-    fetch(`https://gateway.marvel.com:443/v1/public/characters/1009351/comics?apikey=639194d75fce87a0e941f417bbff6300
-`).then(function (response) {
-            return response.json();
-        })
-        .then(function (getMarvel) {
-            marvelInformation(getMarvel);
-        })
-
-        .catch(function (error) {
-            console.log(error);
-        })
-}
-
-/******************** fetch information regarding Iron Man **************************************/
-function fetchIronMan(ironMan) {
-
-    fetch(`https://gateway.marvel.com:443/v1/public/characters/1009368/comics?apikey=639194d75fce87a0e941f417bbff6300
-`).then(function (response) {
-            return response.json();
-        })
-        .then(function (getMarvel) {
-            marvelInformation(getMarvel);
-
-
-        })
         .catch(function (error) {
             console.log(error);
         })
@@ -87,6 +34,7 @@ function fetchimages(startImages) {
         .then(function (getImage) {
             marvelImages(getImage);
             removeLoader();
+
         })
         .catch(function (error) {
             console.log(error);
@@ -137,6 +85,7 @@ function marvelInformation(getMarvel) {
 
 priceButton.addEventListener('click', function () {
     function compareNumbers(a, b) {
+
         /*sort on lowest price*/
         return a.prices[0].price - b.prices[0].prices;
 
@@ -151,22 +100,22 @@ priceButton.addEventListener('click', function () {
 /******************** function click on superhero and show list of it ********************/
 
 spiderButton.addEventListener('click', function () {
-    fetchSpiderMan();
-    startImageWrapper.remove();
+    fetchMarvelHero("1009610");
+    startImageWrapper.style.display = 'none';
 });
 
 hulkButton.addEventListener('click', function () {
-    fetchHulk();
-    startImageWrapper.remove();
+    fetchMarvelHero("1009351");
+    startImageWrapper.style.display = 'none';
 
 });
 ironButton.addEventListener('click', function () {
-    fetchIronMan();
-    startImageWrapper.remove();
+    fetchMarvelHero("1009368");
+    startImageWrapper.style.display = 'none';
 });
 pantherButton.addEventListener('click', function () {
-    fetchBlackPanther();
-    startImageWrapper.remove();
+    fetchMarvelHero("1009187");
+    startImageWrapper.style.display = 'none';
 });
 
 
@@ -175,21 +124,26 @@ pantherButton.addEventListener('click', function () {
 const search = document.getElementById('search');
 search.addEventListener('change', function () {
     const searchValue = search.value;
-    if (searchValue == "spider-man" || searchValue == "Spider Man" || searchValue == "spider man" || searchValue == "Spider man" || searchValue == "Spider-man") {
-        fetchSpiderMan();
-        startImageWrapper.remove();
-    } else if (searchValue == "black panther" || searchValue == "Black Panther" || searchValue == "Black panther") {
-        fetchBlackPanther();
-        startImageWrapper.remove();
-    } else if (searchValue == "hulk" || searchValue == "Hulk") {
-        fetchHulk();
-        startImageWrapper.remove();
-    } else if (searchValue == "iron man" || searchValue == "Iron Man" || searchValue == "Iron man") {
-        fetchIronMan();
-        startImageWrapper.remove();
-    }
 
-})
+
+    if (searchValue.includes('spider', 'spider-man')) {
+        fetchMarvelHero("1009610");
+
+
+    } else if (searchValue.includes('panther')) {
+        fetchMarvelHero("1009187");
+
+    } else if (searchValue.includes('hulk')) {
+        fetchMarvelHero("1009351");
+
+    } else if (searchValue.includes('iron')) {
+        fetchMarvelHero("1009368");
+
+    }
+    /***************** clear input field *******************/
+    search.value = '';
+    
+});
 
 
 /******************** loader/spinner function from http://tobiasahlin.com/ **************/
@@ -198,6 +152,8 @@ function spinner() {
     document.getElementById('spinner').style.display = "none";
 }
 
+
 function removeLoader() {
     setTimeout("spinner()", 1000 * 1);
+    
 }
