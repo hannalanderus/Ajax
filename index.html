@@ -6,8 +6,10 @@
     <meta charset="UTF-8">
     <title>Marvel</title>
     <link rel="stylesheet" type="text/css" href="style.css">
-    <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css?family=Libre+Franklin|Roboto:100" rel="stylesheet">
+
 </head>
 
 <body>
@@ -16,13 +18,36 @@
             <div id="logo"><img class="marvelLogo" src="images/logo.jpg" alt="logo"></div>
         </div>
     </header>
-    <input type="text" id="search">
-    <button id=searchButton>Search</button>
-    <button id=sortOnPrice>Sort on Price</button>
 
-    
+
+    <div id="list">
+        <button id="spider">Spider-man</button>
+        <button id="hulk">Hulk</button>
+        <button id="panther">Black Panther</button>
+        <button id="iron">Iron man</button>
+
+    </div>
+    <hr/>
+
+
+    <div id="inputWrapper">
+        <input type="text" id="search">
+        <button id=searchButton>Search</button>
+        <button id=sortOnPrice>Sort on Price</button>
+
+    </div>
+
+    <div id="spinner" class="spinner">
+        <div class="rect1"></div>
+        <div class="rect2"></div>
+        <div class="rect3"></div>
+        <div class="rect4"></div>
+        <div class="rect5"></div>
+    </div>
+
+
     <div id="marvelInformation"></div>
-
+    <div id="startImageWrapper"></div>
 
 
     <script src=main.js></script>
